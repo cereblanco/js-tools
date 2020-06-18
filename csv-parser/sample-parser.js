@@ -5,12 +5,13 @@ const results = [];
 const file = "sample.csv";
 
 const parseLine = (data) => {
-  const { question_id, text, properties } = data;
+  const { question_id, text, properties, answer } = data;
   choices = properties.replace(/["']/g, "").replace("choices=", "").split(",");
   results.push({
     id: parseInt(question_id),
     question: text,
-    choices: choices,
+    choices,
+    answer,
   });
 };
 
